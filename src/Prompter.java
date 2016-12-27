@@ -17,9 +17,8 @@ public class Prompter {
         do {
             System.out.println("Enter a letter: ");
             String guessInput = scanner.nextLine();
-            char guess = guessInput.charAt(0);
             try {
-                isHit = game.applyGuess(guess);
+                isHit = game.applyGuess(guessInput);
                 isAcceptable = true;
             } catch (IllegalArgumentException e) {
                 System.out.printf("%s. Please try again. %n", e.getMessage());

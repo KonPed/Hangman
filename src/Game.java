@@ -25,6 +25,13 @@ public class Game {
         return validGuess;
     }
 
+    public boolean applyGuess(String letters) {
+        if (letters.isEmpty()) {
+            throw new IllegalArgumentException("No letter found");
+        }
+        return applyGuess(letters.charAt(0));
+    }
+
     public String getCurrentProgress() {
         String progress = "";
         for (char letter : answer.toCharArray()) {
