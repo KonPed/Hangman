@@ -3,14 +3,15 @@
  */
 public class Hangman {
     public static void main(String[] args) {
-        Game game = new Game("treehouse");
+        Game game = new Game("shipyard");
         Prompter prompter = new Prompter(game);
-        prompter.display();
-        if(prompter.promptForGuess()) {
-            System.out.println("We got a hit");
-        } else {
-            System.out.println("Sorry, that was wrong");
+        while (game.remainingTimes() != 0) {
+            prompter.display();
+            if (prompter.promptForGuess()) {
+                System.out.println("We got a hit");
+            } else {
+                System.out.println("Sorry, that was wrong");
+            }
         }
-        prompter.display();
     }
 }

@@ -6,6 +6,7 @@ public class Game {
     private String answer;
     private String hits;
     private String misses;
+    public static final int MAX_MISSES = 7;
 
     public Game(String answer) {
         this.answer = answer;
@@ -33,5 +34,9 @@ public class Game {
             progress += display;
         }
         return progress;
+    }
+
+    public int remainingTimes() {
+        return MAX_MISSES - misses.length();
     }
 }
