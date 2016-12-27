@@ -15,6 +15,9 @@ public class Game {
     }
 
     public boolean applyGuess(char letter) {
+        if (hits.indexOf(Character.toLowerCase(letter)) != -1 || misses.indexOf(Character.toLowerCase(letter)) != -1) {
+            throw new IllegalArgumentException("Letter " + letter + " has already been guessed");
+        }
         boolean validGuess = (answer.indexOf(letter) != -1);
         if (validGuess) {
             hits += letter;
