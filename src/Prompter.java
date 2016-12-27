@@ -17,4 +17,8 @@ public class Prompter {
         char guess = guessInput.charAt(0);
         return game.applyGuess(guess);
     }
+
+    public void display() {
+        System.out.printf("Try to solve  %s%n", game.getCurrentProgress());
+    }
 }
