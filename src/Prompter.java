@@ -13,7 +13,7 @@ public class Prompter {
     public boolean promptForGuess() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a letter: ");
-        String guessInput = scanner.next();
+        String guessInput = scanner.nextLine();
         char guess = guessInput.charAt(0);
         return game.applyGuess(guess);
     }
