@@ -31,4 +31,12 @@ public class Prompter {
         System.out.printf("You have %d tries left to solve %s%n", game.remainingTimes(),
                 game.getCurrentProgress());
     }
+
+    public void displayOutcome() {
+        if (game.isWon()) {
+            System.out.printf("Congratulations you found the word : %s%n", game.getAnswer());
+        } else {
+            System.out.printf("Oups! Sorry you could't find the word : %s.  :( Better luck next time%n", game.getAnswer());
+        }
+    }
 }

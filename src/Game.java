@@ -12,6 +12,7 @@ public class Game {
         this.answer = answer.toLowerCase();
         hits = "";
         misses = "";
+
     }
 
     public boolean applyGuess(char letter) {
@@ -57,5 +58,13 @@ public class Game {
 
     public int remainingTimes() {
         return MAX_MISSES - misses.length();
+    }
+
+    public boolean isWon() {
+        return getCurrentProgress().indexOf('-') == -1;
+    }
+
+    public String getAnswer() {
+        return answer;
     }
 }
