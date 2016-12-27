@@ -12,15 +12,19 @@ public class Prompter {
 
     public boolean promptForGuess() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a letter: ");
-        String guessInput = scanner.nextLine();
-        char guess = guessInput.charAt(0);
         boolean isHit = false;
-        try {
-            isHit = game.applyGuess(guess);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        boolean isAcceptable = false;
+        do {
+            System.out.println("Enter a letter: ");
+            String guessInput = scanner.nextLine();
+            char guess = guessInput.charAt(0);
+            try {
+                isHit = game.applyGuess(guess);
+                isAcceptable = true;
+            } catch (IllegalArgumentException e) {
+                System.out.printf("%s. Please try again. %n", e.getMessage());
+            }
+        } while (!isAcceptable);
         return isHit;
     }
 

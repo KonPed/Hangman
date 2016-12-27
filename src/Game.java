@@ -9,15 +9,13 @@ public class Game {
     public static final int MAX_MISSES = 7;
 
     public Game(String answer) {
-        this.answer = answer;
+        this.answer = answer.toLowerCase();
         hits = "";
         misses = "";
     }
 
     public boolean applyGuess(char letter) {
-        if (hits.indexOf(Character.toLowerCase(letter)) != -1 || misses.indexOf(Character.toLowerCase(letter)) != -1) {
-            throw new IllegalArgumentException("Letter " + letter + " has already been guessed");
-        }
+        letter = normalizeGuess(letter);
         boolean validGuess = (answer.indexOf(letter) != -1);
         if (validGuess) {
             hits += letter;
@@ -37,6 +35,17 @@ public class Game {
             progress += display;
         }
         return progress;
+    }
+
+    private char normalizeGuess(char letter) {
+        if (!Character.isLetter(letter)) {
+            throw new IllegalArgumentException("A letter is required");
+        }
+        letter = Character.toLowerCase(letter);
+        if (hits.indexOf(letter) != -1 || misses.indexOf(letter) != -1) {
+            throw new IllegalArgumentException("Letter " + letter + " has already been guessed");
+        }
+        return letter;
     }
 
     public int remainingTimes() {
