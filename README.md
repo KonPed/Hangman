@@ -10,6 +10,7 @@
 - The game now understand about the already guessed letters, without decreamenting the remaining times - **`UPDATED`**
 ---
 ![console](https://cldup.com/xwP0_QGZJ6.png)
+
 **Usage:** if you are running the game through a command line, type :
 ```sh
 java Hangman word
